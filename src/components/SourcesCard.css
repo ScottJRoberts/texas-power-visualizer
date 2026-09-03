@@ -1,0 +1,186 @@
+.sources {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.sources__heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* The whole header is the control, so the hit target is the full card width. */
+.sources__toggle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sources__toggle:hover {
+  background: var(--bg);
+}
+
+.sources__toggle:focus-visible {
+  outline: 2px solid var(--series-baseline);
+  outline-offset: -2px;
+}
+
+.sources__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.sources__sub {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.sources__chevron {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  color: var(--text-muted);
+  transition: transform 150ms ease;
+}
+
+.sources.is-expanded .sources__chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sources__chevron {
+    transition: none;
+  }
+}
+
+.sources__body {
+  padding: 0 1.125rem 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.sources__body > p:first-child {
+  margin-top: 1rem;
+}
+
+.sources__body > p {
+  margin: 0 0 1rem;
+  max-width: 74ch;
+}
+
+.sources__body h3 {
+  margin: 1.75rem 0 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.sources__muted {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sources__links {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.sources__links li {
+  margin-bottom: 0.25rem;
+}
+
+.sources a {
+  color: var(--series-baseline);
+}
+
+/* Wide tables scroll inside their own box rather than widening the dialog. */
+.sources__scroll {
+  overflow-x: auto;
+}
+
+.sources__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.sources__table th,
+.sources__table td {
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.sources__table thead th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+
+.sources__table tbody th[scope='row'],
+.sources__table thead th:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.sources__table .is-total th,
+.sources__table .is-total td {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/* 9 PM — the hour the whole model turns on. */
+.sources__table .is-risk th,
+.sources__table .is-risk td {
+  background: #fff8e6;
+  font-weight: 600;
+}
+
+.sources__exemplar {
+  text-align: left !important;
+  white-space: normal !important;
+  color: var(--text-muted);
+  min-width: 20ch;
+}
+
+.sources__caption {
+  margin: 0.625rem 0 0;
+  max-width: 74ch;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.sources__badge {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sources__badge--sourced { background: #e6f4ea; color: #1e7e39; }
+.sources__badge--derived { background: #e8f0fe; color: #1a5fb4; }
+.sources__badge--projected { background: #fdf0e3; color: #a15c00; }
+.sources__badge--assumed { background: #fdf3f3; color: #b03030; }
+.sources__badge--placeholder { background: #f0eef6; color: #5b4b8a; }

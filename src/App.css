@@ -1,31 +1,197 @@
+:root {
+  --bg: #fbfbfa;
+  --surface: #ffffff;
+  --border: #e3e3e0;
+  --text: #1c1c1a;
+  --text-muted: #6b6b66;
+  --series-baseline: #1f6feb;
+  --series-comparison: #d97706;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
 .App {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.app-title {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.25rem;
+}
+
+.app-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.app-hook {
+  margin: 0.625rem 0 0;
+  max-width: 64ch;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.app-tabs {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.app-tab {
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.app-tab[aria-selected='true'] {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.app-tab:focus-visible {
+  outline: 2px solid var(--series-baseline);
+  outline-offset: 2px;
+}
+
+/* The framing device sits in the nav, not inside a view, because it changes
+   the question being asked no matter which card you are looking at. */
+.scenario-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.scenario-switch:hover {
+  border-color: var(--text-muted);
+}
+
+.scenario-switch:focus-visible {
+  outline: 2px solid var(--series-baseline);
+  outline-offset: 2px;
+}
+
+.scenario-switch__track {
+  position: relative;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 19px;
+  border-radius: 999px;
+  background: hsl(230 12% 80%);
+  transition: background 140ms ease;
+}
+
+.scenario-switch[aria-checked='true'] .scenario-switch__track {
+  background: var(--series-comparison);
+}
+
+.scenario-switch__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 140ms ease;
+}
+
+.scenario-switch[aria-checked='true'] .scenario-switch__knob {
+  transform: translateX(17px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scenario-switch__track,
+  .scenario-switch__knob {
+    transition: none;
+  }
+}
+
+/* One card at a time. */
+.app-stage {
+  display: grid;
+}
+
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.app-card--build {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .app-card--build {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Asking for the chart is a deliberate act, so the button is quiet. */
+.app-stuck {
+  margin: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-stuck__button {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-stuck__button:hover {
+  color: var(--text);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.heart {
-  color: #ff0000;
-}
-
-.small {
-  font-size: 0.75rem;
+.app-stuck__button:focus-visible {
+  outline: 2px solid var(--series-baseline);
+  outline-offset: 2px;
 }

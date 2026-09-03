@@ -1,0 +1,75 @@
+/* --lit is 0..1. Registering it as a number lets the browser interpolate it,
+   which is what makes scrubbing the clock feel continuous instead of steppy. */
+@property --lit {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+.room {
+  --lit: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px;
+  padding: 1.5rem 1.25rem 1.75rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 26%,
+      hsl(45 90% 65% / calc(var(--lit) * 0.9)),
+      hsl(230 40% 8%) 70%
+    ),
+    hsl(230 40% 8%);
+  transition: --lit 120ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room {
+    transition: none;
+  }
+}
+
+/* --- lamp ---------------------------------------------------------------- */
+
+.room__ceiling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room__cord {
+  width: 2px;
+  height: 42px;
+  background: hsl(230 20% 30%);
+}
+
+.room__shade {
+  width: 0;
+  height: 0;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-top: 26px solid hsl(230 18% calc(26% + var(--lit) * 22%));
+  border-radius: 3px;
+}
+
+.room__bulb {
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: hsl(45 95% calc(30% + var(--lit) * 62%));
+  box-shadow: 0 0 calc(var(--lit) * 40px) calc(var(--lit) * 12px)
+    hsl(45 95% 70% / calc(var(--lit) * 0.75));
+}
+
+/* Diagnosis sits in the same eyeline as the light, never in a page header. */
+.room__readout {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  min-height: 3.25rem;
+  max-width: 46ch;
+  text-align: center;
+}

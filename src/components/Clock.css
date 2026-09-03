@@ -1,0 +1,60 @@
+.clock {
+  display: flex;
+  justify-content: center;
+}
+
+.clock__dial {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  touch-action: none;
+  cursor: grab;
+}
+
+.clock__dial:active {
+  cursor: grabbing;
+}
+
+.clock__dial:focus-visible {
+  outline: 2px solid var(--series-baseline);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.clock__track {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 10;
+}
+
+.clock__fill {
+  fill: none;
+  stroke: var(--series-baseline);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.clock__tick {
+  fill: var(--text-muted);
+}
+
+.clock__handle {
+  fill: var(--surface);
+  stroke: var(--series-baseline);
+  stroke-width: 3;
+}
+
+.clock__time {
+  fill: var(--text);
+  font-size: 22px;
+  font-weight: 600;
+  text-anchor: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock__caption {
+  fill: var(--text-muted);
+  font-size: 10px;
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+}

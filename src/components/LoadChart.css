@@ -1,0 +1,86 @@
+.load-chart {
+  margin: 0;
+}
+
+.load-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.load-chart__grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.load-chart__axis {
+  stroke: var(--text-muted);
+  stroke-width: 1;
+}
+
+.load-chart__label {
+  fill: var(--text-muted);
+  font-size: 11px;
+}
+
+.load-chart__label--y {
+  text-anchor: end;
+  dominant-baseline: middle;
+}
+
+.load-chart__label--x {
+  text-anchor: middle;
+}
+
+.load-chart__unit {
+  fill: var(--text-muted);
+  font-size: 10px;
+  text-anchor: end;
+  letter-spacing: 0.04em;
+}
+
+.load-chart__line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.load-chart__line--baseline {
+  stroke: var(--series-baseline);
+}
+
+.load-chart__line--comparison {
+  stroke: var(--series-comparison);
+  stroke-dasharray: 5 4;
+}
+
+.load-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.875rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.load-chart__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.load-chart__swatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.load-chart__swatch--baseline {
+  background: var(--series-baseline);
+}
+
+.load-chart__swatch--comparison {
+  background: var(--series-comparison);
+}

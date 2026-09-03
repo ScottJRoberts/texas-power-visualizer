@@ -1,0 +1,36 @@
+.status-bar {
+  margin: 0 0 1rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+.status-bar__headline,
+.status-bar__worst {
+  margin: 0;
+}
+
+.status-bar__worst {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.status-bar__value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--series-comparison);
+}
+
+.status-bar__note {
+  color: var(--text-muted);
+}
+
+.status-bar--covered {
+  color: var(--text-muted);
+}
+
+.status-bar__win {
+  color: #23c552;
+  font-weight: 600;
+}
