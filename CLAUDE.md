@@ -155,7 +155,6 @@ Generic strings ("not enough power") teach nothing. Every message is a diagnosis
 - Real hourly ERCOT CSVs (synthetic curve is enough to show the shape)
 - Cost modeling — cost is the obvious axis; time and shape are the non-obvious ones
 - Procurement lead times — a later layer, not v1
-- Interconnection queue deduplication — data-cleaning rabbit hole, teaches nothing
 - Animation and visual polish beyond the brightness transition
 - Next-gen supply options (SMR, geothermal, fusion)
 - **Procurement lead times and per-project arrival years.** Still out: those numbers
